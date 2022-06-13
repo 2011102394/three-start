@@ -38,13 +38,7 @@ export default {
       //   8、设置相机的位置
       camera.position.z = 5
       //   9、渲染
-      function render() {
-        requestAnimationFrame(render)
-        cube.rotation.x += 0.1
-        cube.rotation.y += 0.1
-        renderer.render(scene, camera)
-      }
-      render()
+      renderer.render(scene, camera)
     },
   },
 }
