@@ -45,6 +45,14 @@ const routes = [
         /* webpackChunkName: "MeshMove" */ "@/views/base/mesh/meshMove.vue"
       ),
   },
+  {
+    path: "/mesh/scale",
+    name: "MeshScale",
+    component: () =>
+      import(
+        /* webpackChunkName: "MeshScale" */ "@/views/base/mesh/meshScale.vue"
+      ),
+  },
 ]
 
 const router = new VueRouter({
