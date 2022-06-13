@@ -8,6 +8,7 @@
     <router-link to="/axesHelper" class="router-item"
       >坐标轴辅助器示例</router-link
     >
+    <router-link to="/mesh/move" class="router-item">物体移动示例</router-link>
   </div>
 </template>
 
