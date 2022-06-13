@@ -2,7 +2,12 @@
   <div id="nav">
     <router-link to="/" class="router-item">Home</router-link>
     <router-link to="/quickStart" class="router-item">QuickStart</router-link>
-    <router-link to="/orbitControls" class="router-item">轨道控制器示例</router-link>
+    <router-link to="/orbitControls" class="router-item"
+      >轨道控制器示例</router-link
+    >
+    <router-link to="/axesHelper" class="router-item"
+      >坐标轴辅助器示例</router-link
+    >
   </div>
 </template>
 

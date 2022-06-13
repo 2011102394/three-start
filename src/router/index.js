@@ -22,6 +22,11 @@ const routes = [
     path: '/orbitControls',
     name: 'OrbitControls',
     component: () => import(/* webpackChunkName: "orbitControl" */ '@/views/base/orbitControls/index.vue')
+  },
+  {
+    path: '/axesHelper',
+    name: 'axesHelper',
+    component: () => import(/* webpackChunkName: "axesHelper" */ '@/views/base/axesHelper/index.vue')
   }
 ]
 
