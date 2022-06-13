@@ -10,6 +10,9 @@
     >
     <router-link to="/mesh/move" class="router-item">物体移动示例</router-link>
     <router-link to="/mesh/scale" class="router-item">物体缩放示例</router-link>
+    <router-link to="/mesh/rotate" class="router-item"
+      >物体旋转示例</router-link
+    >
   </div>
 </template>
 
