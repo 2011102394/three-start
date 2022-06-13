@@ -8,6 +8,7 @@
 </template>
 <script>
 import * as THREE from "three"
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 export default {
   mounted() {
     this.initThree()
@@ -28,7 +29,9 @@ export default {
       //  5、创建相机
       const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
       //  6、创建一个立方体
+      //   几何体
       const geometry = new THREE.BoxGeometry(1, 1, 1)
+      //   材质
       const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
       const cube = new THREE.Mesh(geometry, material)
       //  7、将立方体添加到场景中
@@ -37,6 +40,14 @@ export default {
       camera.position.z = 5
       //  9、渲染
       renderer.render(scene, camera)
+      //  10、创建轨道控制器
+      const controls = new OrbitControls(camera, renderer.domElement)
+      //  11、动态渲染
+      const render = ()=>{
+        renderer.render(scene, camera)
+        requestAnimationFrame(render)
+      }
+      render()
     },
   },
 }
