@@ -1,5 +1,7 @@
 <template>
-  <div class="home">
+  <div id="nav">
+    <router-link to="/" class="router-item">Home</router-link>
+    <router-link to="/quickStart" class="router-item">QuickStart</router-link>
   </div>
 </template>
 
@@ -11,3 +13,13 @@ export default {
   components: {},
 }
 </script>
+
+<style lang="scss" scoped>
+#nav {
+  display: flex;
+  flex-direction: column;
+  .router-item {
+    margin: 10px;
+  }
+}
+</style>
