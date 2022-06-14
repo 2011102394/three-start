@@ -77,6 +77,14 @@ const routes = [
         /* webpackChunkName: "Clock" */ "@/views/base/animate/clock/index.vue"
       ),
   },
+  {
+    path: "/animate/gsap/base",
+    name: "GsapBase",
+    component: () =>
+      import(
+        /* webpackChunkName: "GsapBase" */ "@/views/base/animate/gsap/base.vue"
+      ),
+  },
 ]
 
 const router = new VueRouter({
