@@ -9,6 +9,7 @@
 <script>
 import * as THREE from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
+import gsap from "gsap"
 let raf
 export default {
   mounted() {
@@ -45,6 +46,32 @@ export default {
         raf = requestAnimationFrame(render)
       }
       render()
+      // 动画相关的操作
+      const animate = gsap.to(cube.position, {
+        x: 5,
+        duration: 5,
+        // 重复次数，无限循环 -1
+        repeat:2,
+        // 往返运动
+        yoyo: true,
+        ease: "power2.inOut",
+        onStart: () => {
+          console.log("动画开始")
+        },
+        onComplete: () => {
+          console.log("动画结束")
+        },
+      })
+
+      window.addEventListener("dblclick", () => {
+        if (animate.isActive()) {
+          // 动画暂停
+          animate.pause()
+        } else {
+          // 动画开始
+          animate.resume()
+        }
+      })
     },
   },
   beforeRouteLeave(to, from, next) {
