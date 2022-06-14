@@ -29,7 +29,7 @@ export default {
       const orbitControls = new OrbitControls(camera, renderer.domElement)
       //   开启控制器阻尼
       orbitControls.enableDamping = true
-      const axesHelper = new THREE.AxesHelper(10)
+      const axesHelper = new THREE.AxesHelper(5)
       scene.add(axesHelper)
       const geometry = new THREE.BoxGeometry(1, 1, 1)
       const material = new THREE.MeshBasicMaterial({ color: 0x1890ff })
@@ -41,7 +41,7 @@ export default {
         raf = requestAnimationFrame(render)
       }
       render()
-      gsap.to(cube.position, { x: 10, duration: 10, repeat: 2, yoyo: true })
+      gsap.to(cube.position, { x: 5, duration: 5, repeat: 2, yoyo: true })
       window.addEventListener("resize", () => {
         width = threeDOM.offsetWidth
         height = threeDOM.offsetHeight
@@ -67,6 +67,6 @@ export default {
 <style lang="scss" scoped>
 .three-container {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
 }
 </style>
