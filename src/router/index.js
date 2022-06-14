@@ -93,6 +93,12 @@ const routes = [
         /* webpackChunkName: "GsapAdvance" */ "@/views/base/animate/gsap/advance.vue"
       ),
   },
+  {
+    path: "/resize",
+    name: "Resize",
+    component: () =>
+      import(/* webpackChunkName: "Resize" */ "@/views/base/resize/index.vue"),
+  },
 ]
 
 const router = new VueRouter({
