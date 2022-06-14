@@ -8,7 +8,8 @@
 </template>
 <script>
 import * as THREE from "three"
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
+let raf
 export default {
   mounted() {
     this.initThree()
@@ -35,18 +36,25 @@ export default {
       const render = (time) => {
         // 时间间隔
         const delta = clock.getDelta()
-        console.log(delta)
+        console.log("时钟运行间隔时长：",delta)
         // clock 运行总时间
         const elapsedTime = clock.getElapsedTime()
-        console.log(elapsedTime)
+        console.log("时钟运行总时长：",elapsedTime)
         // 匀速运动
         let t = (time / 1000) % 5
         cube.position.x = t * 1
-        requestAnimationFrame(render)
+        raf = requestAnimationFrame(render)
         renderer.render(scene, camera)
       }
       render()
     },
+  },
+  destroyed() {
+    cancelAnimationFrame(raf)
+  },
+  beforeRouteLeave(to, from, next) {
+    cancelAnimationFrame(raf)
+    next()
   },
 }
 </script>
