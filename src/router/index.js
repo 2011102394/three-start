@@ -69,6 +69,14 @@ const routes = [
         /* webpackChunkName: "RequestAnimationFrame" */ "@/views/base/animate/requestAnimationFrame/index.vue"
       ),
   },
+  {
+    path: "/animate/clock",
+    name: "Clock",
+    component: () =>
+      import(
+        /* webpackChunkName: "Clock" */ "@/views/base/animate/clock/index.vue"
+      ),
+  },
 ]
 
 const router = new VueRouter({

@@ -16,6 +16,9 @@
     <router-link to="/animate/requestAnimationFrame" class="router-item"
       >请求动画帧</router-link
     >
+    <router-link to="/animate/clock" class="router-item"
+      >Clock示例</router-link
+    >
   </div>
 </template>
 
