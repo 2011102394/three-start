@@ -41,7 +41,7 @@ export default {
         raf = requestAnimationFrame(render)
       }
       render()
-      gsap.to(cube.position, { x: 5, duration: 5, repeat: 2, yoyo: true })
+      gsap.to(cube.position, { x: 5, duration: 5, repeat: -1, yoyo: true })
       window.addEventListener("resize", () => {
         width = threeDOM.offsetWidth
         height = threeDOM.offsetHeight

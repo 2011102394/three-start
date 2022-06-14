@@ -99,6 +99,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "Resize" */ "@/views/base/resize/index.vue"),
   },
+  {
+    path: "/fullScreen",
+    name: "fullScreen",
+    component: () =>
+      import(/* webpackChunkName: "fullScreen" */ "@/views/base/fullScreen/index.vue"),
+  },
 ]
 
 const router = new VueRouter({
