@@ -85,6 +85,14 @@ const routes = [
         /* webpackChunkName: "GsapBase" */ "@/views/base/animate/gsap/base.vue"
       ),
   },
+  {
+    path: "/animate/gsap/advance",
+    name: "GsapAdvance",
+    component: () =>
+      import(
+        /* webpackChunkName: "GsapAdvance" */ "@/views/base/animate/gsap/advance.vue"
+      ),
+  },
 ]
 
 const router = new VueRouter({

@@ -49,9 +49,6 @@ export default {
       render()
     },
   },
-  destroyed() {
-    cancelAnimationFrame(raf)
-  },
   beforeRouteLeave(to, from, next) {
     cancelAnimationFrame(raf)
     next()

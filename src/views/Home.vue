@@ -18,6 +18,7 @@
     >
     <router-link to="/animate/clock" class="router-item">Clock示例</router-link>
     <router-link to="/animate/gsap/base" class="router-item">Gsap基本使用</router-link>
+    <router-link to="/animate/gsap/advance" class="router-item">Gsap进阶使用</router-link>
   </div>
 </template>
 

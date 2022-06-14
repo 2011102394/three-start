@@ -1,15 +1,14 @@
 <!-- 
-    @description gsap补间动画库基本使用
+    @description gsap库的进一步使用
     @author zhangcj
-    @date 2022-06-14 12:15:27 
+    @date 2022-06-14 14:14:09 
  -->
 <template>
-  <div class="three-container" ref="threeDom"></div>
+  <div class="three-container" ref="threeDOM"></div>
 </template>
 <script>
 import * as THREE from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
-import gsap from "gsap"
 let raf
 export default {
   mounted() {
@@ -17,30 +16,30 @@ export default {
   },
   methods: {
     initThree() {
-      const threeDom = this.$refs.threeDom
-      const width = threeDom.clientWidth
-      const height = threeDom.clientHeight
+      // 获取three渲染的容器
+      const threeDOM = this.$refs.threeDOM
+      const width = threeDOM.offsetWidth
+      const height = threeDOM.offsetHeight
+      // 创建three渲染器，设置渲染器尺寸，追加到容器中
       const renderer = new THREE.WebGLRenderer()
       renderer.setSize(width, height)
-      threeDom.appendChild(renderer.domElement)
+      threeDOM.appendChild(renderer.domElement)
+      // 创建scene场景
       const scene = new THREE.Scene()
+      // 创建相机，设置相机位置
       const camera = new THREE.PerspectiveCamera(75, width / height, 1, 1000)
-      camera.position.z = 10
+      camera.position.z = 5
+      // 创建轨道控制器
+      const orbitControls = new OrbitControls(camera, renderer.domElement)
+      // 创建坐标轴辅助器，添加到场景中
+      const axesHelper = new THREE.AxesHelper(5)
+      scene.add(axesHelper)
+      // 创建一个立方体，添加到场景中
       const geometry = new THREE.BoxGeometry(1, 1, 1)
       const material = new THREE.MeshBasicMaterial({ color: 0x1890ff })
       const cube = new THREE.Mesh(geometry, material)
       scene.add(cube)
-      const axesHelper = new THREE.AxesHelper(5)
-      scene.add(axesHelper)
-      new OrbitControls(camera, renderer.domElement)
-      // 设置动画 沿x轴平移5个单位，平移时间5秒，速率 说明参考：https://greensock.com/get-started/#easing
-      gsap.to(cube.position, { x: 5, duration: 5, ease: "power2.inOut" })
-      // 绕x轴旋转360度,时间5秒，速率 说明参考：https://greensock.com/get-started/#easing
-      gsap.to(cube.rotation, {
-        x: Math.PI * 2,
-        duration: 5,
-        ease: "power2.inOut",
-      })
+      // 渲染器渲染
       const render = () => {
         renderer.render(scene, camera)
         raf = requestAnimationFrame(render)
@@ -49,14 +48,16 @@ export default {
     },
   },
   beforeRouteLeave(to, from, next) {
-    cancelAnimationFrame(raf)
+    if (raf) {
+      cancelAnimationFrame(raf)
+    }
     next()
   },
 }
 </script>
 <style lang="scss" scoped>
 .three-container {
-  width: 100%;
   height: 100vh;
+  width: 100%;
 }
 </style>
