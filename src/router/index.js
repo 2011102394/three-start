@@ -61,6 +61,14 @@ const routes = [
         /* webpackChunkName: "MeshRotate" */ "@/views/base/mesh/meshRotate.vue"
       ),
   },
+  {
+    path: "/animate/requestAnimationFrame",
+    name: "RequestAnimationFrame",
+    component: () =>
+      import(
+        /* webpackChunkName: "RequestAnimationFrame" */ "@/views/base/animate/requestAnimationFrame/index.vue"
+      ),
+  },
 ]
 
 const router = new VueRouter({

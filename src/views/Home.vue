@@ -13,6 +13,9 @@
     <router-link to="/mesh/rotate" class="router-item"
       >物体旋转示例</router-link
     >
+    <router-link to="/animate/requestAnimationFrame" class="router-item"
+      >请求动画帧</router-link
+    >
   </div>
 </template>
 
