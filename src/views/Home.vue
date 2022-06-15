@@ -32,6 +32,9 @@
     <router-link to="/geometry/bufferGeometry/cube" class="router-item"
       >BufferGeometry设置顶点绘制矩形</router-link
     >
+    <router-link to="/geometry/bufferGeometry/triangle" class="router-item"
+      >绘制多姿多彩的三角面</router-link
+    >
   </div>
 </template>
 

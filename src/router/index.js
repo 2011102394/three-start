@@ -123,6 +123,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "Cube" */ "@/views/geometry/bufferGeometry/cube.vue"),
   },
+  {
+    path: "/geometry/bufferGeometry/triangle",
+    name: "Triangle",
+    component: () =>
+      import(/* webpackChunkName: "Triangle" */ "@/views/geometry/bufferGeometry/triangle.vue"),
+  },
 ]
 
 const router = new VueRouter({
