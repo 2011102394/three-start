@@ -105,6 +105,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "fullScreen" */ "@/views/base/fullScreen/index.vue"),
   },
+  {
+    path: "/gui",
+    name: "gui",
+    component: () =>
+      import(/* webpackChunkName: "gui" */ "@/views/base/gui/index.vue"),
+  },
 ]
 
 const router = new VueRouter({

@@ -25,6 +25,7 @@
     >
     <router-link to="/resize" class="router-item">自适应画面</router-link>
     <router-link to="/fullScreen" class="router-item">全屏</router-link>
+    <router-link to="/gui" class="router-item">gui测试</router-link>
   </div>
 </template>
 
@@ -40,9 +41,12 @@ export default {
 <style lang="scss" scoped>
 #nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
   .router-item {
     margin: 10px;
+    width: 20%;
   }
 }
 </style>
