@@ -111,6 +111,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "gui" */ "@/views/base/gui/index.vue"),
   },
+  {
+    path: "/geometry/line",
+    name: "Line",
+    component: () =>
+      import(/* webpackChunkName: "Line" */ "@/views/geometry/line/index.vue"),
+  },
 ]
 
 const router = new VueRouter({

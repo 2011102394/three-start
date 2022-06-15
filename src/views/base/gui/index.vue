@@ -11,6 +11,7 @@ import * as THREE from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import * as dat from "dat.gui"
 let raf
+let gui
 export default {
   mounted() {
     this.initThree()
@@ -41,7 +42,7 @@ export default {
       const cube = new THREE.Mesh(geometry, material)
       scene.add(cube)
       // gui测试
-      const gui = new dat.GUI({ name: "控制面板" })
+      gui = new dat.GUI({ name: "控制面板" })
       // 平移
       const moveFolder = gui.addFolder("物体移动")
       moveFolder
@@ -92,12 +93,15 @@ export default {
         renderer.setPixelRatio(window.devicePixelRatio)
       })
     },
-    beforeRouteLeave(to, from, next) {
-      if (raf) {
-        cancelAnimationFrame(raf)
-      }
-      next()
-    },
+  },
+  beforeRouteLeave(to, from, next) {
+    if (raf) {
+      cancelAnimationFrame(raf)
+    }
+    if (gui) {
+      gui.destroy()
+    }
+    next()
   },
 }
 </script>

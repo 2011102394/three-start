@@ -26,6 +26,7 @@
     <router-link to="/resize" class="router-item">自适应画面</router-link>
     <router-link to="/fullScreen" class="router-item">全屏</router-link>
     <router-link to="/gui" class="router-item">gui测试</router-link>
+    <router-link to="/geometry/line" class="router-item">线</router-link>
   </div>
 </template>
 
