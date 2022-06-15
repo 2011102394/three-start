@@ -19,8 +19,8 @@ export default {
     initThree() {
       // 容器
       const threeDOM = this.$refs.threeDOM
-      const width = threeDOM.offsetWidth
-      const height = threeDOM.offsetHeight
+      let width = threeDOM.offsetWidth
+      let height = threeDOM.offsetHeight
       // 渲染器
       const renderer = new THREE.WebGLRenderer()
       renderer.setSize(width, height)
@@ -71,14 +71,26 @@ export default {
         cube.material.color.set(color)
       })
       // 显隐控制
-      const visibilityFolder = gui.addFolder('显隐控制')
-      visibilityFolder.add(cube,'visible').name('显隐')
+      const visibilityFolder = gui.addFolder("显隐控制")
+      visibilityFolder.add(cube, "visible").name("显隐")
       // 渲染
       const render = () => {
         renderer.render(scene, camera)
         raf = requestAnimationFrame(render)
       }
       render()
+      window.addEventListener("resize", () => {
+        width = threeDOM.offsetWidth
+        height = threeDOM.offsetHeight
+        // 更新相机宽高比
+        camera.aspect = width / height
+        // 更新相机投影矩阵
+        camera.updateProjectionMatrix()
+        // 更新渲染器
+        renderer.setSize(width, height)
+        // 更新渲染器像素比
+        renderer.setPixelRatio(window.devicePixelRatio)
+      })
     },
     beforeRouteLeave(to, from, next) {
       if (raf) {
