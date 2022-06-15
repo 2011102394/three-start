@@ -112,10 +112,16 @@ const routes = [
       import(/* webpackChunkName: "gui" */ "@/views/base/gui/index.vue"),
   },
   {
-    path: "/geometry/line",
+    path: "/geometry/bufferGeometry/line",
     name: "Line",
     component: () =>
-      import(/* webpackChunkName: "Line" */ "@/views/geometry/line/index.vue"),
+      import(/* webpackChunkName: "Line" */ "@/views/geometry/bufferGeometry/line.vue"),
+  },
+  {
+    path: "/geometry/bufferGeometry/cube",
+    name: "Cube",
+    component: () =>
+      import(/* webpackChunkName: "Cube" */ "@/views/geometry/bufferGeometry/cube.vue"),
   },
 ]
 

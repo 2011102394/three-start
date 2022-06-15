@@ -26,7 +26,12 @@
     <router-link to="/resize" class="router-item">自适应画面</router-link>
     <router-link to="/fullScreen" class="router-item">全屏</router-link>
     <router-link to="/gui" class="router-item">gui测试</router-link>
-    <router-link to="/geometry/line" class="router-item">线</router-link>
+    <router-link to="/geometry/bufferGeometry/line" class="router-item"
+      >线</router-link
+    >
+    <router-link to="/geometry/bufferGeometry/cube" class="router-item"
+      >BufferGeometry设置顶点绘制矩形</router-link
+    >
   </div>
 </template>
 
