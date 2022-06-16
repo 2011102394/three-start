@@ -32,7 +32,7 @@ export default {
       orbitControls.enableDamping = true
       // 导入纹理
       const textureLoader = new THREE.TextureLoader()
-      const img = require("../../../assets/mesh/door/color.jpg")
+      const img = require("@/assets/mesh/door/color.jpg")
       const texture = textureLoader.load(img)
       const geometry = new THREE.BoxBufferGeometry(1, 1, 1)
       const material = new THREE.MeshBasicMaterial({

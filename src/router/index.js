@@ -130,10 +130,16 @@ const routes = [
       import(/* webpackChunkName: "Triangle" */ "@/views/geometry/bufferGeometry/triangle.vue"),
   },
   {
-    path: "/material/base",
-    name: "BaseMaterial",
+    path: "/material/texture/root/base",
+    name: "TextureBase",
     component: () =>
-      import(/* webpackChunkName: "BaseMaterial" */ "@/views/material/base/index.vue"),
+      import(/* webpackChunkName: "TextureBase" */ "@/views/material/texture/root/index.vue"),
+  },
+  {
+    path: "/material/texture/root/advance",
+    name: "TextureAdvance",
+    component: () =>
+      import(/* webpackChunkName: "TextureAdvance" */ "@/views/material/texture/root/advance.vue"),
   },
 ]
 
