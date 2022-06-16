@@ -35,6 +35,9 @@
     <router-link to="/geometry/bufferGeometry/triangle" class="router-item"
       >绘制多姿多彩的三角面</router-link
     >
+    <router-link to="/material/base" class="router-item"
+      >基础材质</router-link
+    >
   </div>
 </template>
 

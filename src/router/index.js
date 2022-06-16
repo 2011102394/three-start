@@ -129,6 +129,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "Triangle" */ "@/views/geometry/bufferGeometry/triangle.vue"),
   },
+  {
+    path: "/material/base",
+    name: "BaseMaterial",
+    component: () =>
+      import(/* webpackChunkName: "BaseMaterial" */ "@/views/material/base/index.vue"),
+  },
 ]
 
 const router = new VueRouter({
