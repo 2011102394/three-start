@@ -27,10 +27,18 @@ export default {
       scene.add(axesHelper)
       const camera = new THREE.PerspectiveCamera(75, width / height, 1, 1000)
       camera.position.z = 5
+      scene.add(camera)
       const orbitControls = new OrbitControls(camera, renderer.domElement)
       orbitControls.enableDamping = true
+      // 导入纹理
+      const textureLoader = new THREE.TextureLoader()
+      const img = require("../../../assets/mesh/door/color.jpg")
+      const texture = textureLoader.load(img)
       const geometry = new THREE.BoxBufferGeometry(1, 1, 1)
-      const material = new THREE.MeshBasicMaterial({ color: "#00ff99" })
+      const material = new THREE.MeshBasicMaterial({
+        color: "#ffff00",
+        map: texture,
+      })
       const cube = new THREE.Mesh(geometry, material)
       scene.add(cube)
       const render = () => {
