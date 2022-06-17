@@ -31,11 +31,23 @@ export default {
       const axesHelper = new THREE.AxesHelper(5)
       scene.add(axesHelper)
       const geometry = new THREE.BoxGeometry(1, 1, 1)
-      //添加纹理
+      //添加颜色纹理
       const textureImg = require("@/assets/mesh/door/color.jpg")
       const texture = new THREE.TextureLoader().load(textureImg)
+      // 设置纹理偏移
+      // texture.offset.setX(0.5)
+      // texture.offset.setY(0.5)
+      // 设置纹理旋转 纹理将围绕中心点旋转多少度，单位为弧度（rad）。正值为逆时针方向旋转，默认值为0
+      //  旋转中心点。(0.5, 0.5)对应纹理的正中心。默认值为(0,0)，即左下角。
+      // texture.center.set(0.5, 0.5)
+      // texture.rotation = Math.PI / 4
+      // 设置纹理重复
+      // 水平方向镜像重复
+      texture.wrapS = THREE.MirroredRepeatWrapping
+      // 垂直方向无限重复
+      texture.wrapT = THREE.RepeatWrapping
+      texture.repeat.set(2, 3)
       const material = new THREE.MeshBasicMaterial({
-        // color: 0x00ff00,
         map: texture,
       })
       const cube = new THREE.Mesh(geometry, material)
