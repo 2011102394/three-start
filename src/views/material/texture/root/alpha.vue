@@ -30,15 +30,20 @@ export default {
       const axesHelper = new THREE.AxesHelper(5)
       scene.add(axesHelper)
       const geometry = new THREE.BoxGeometry(1, 1, 1)
-      const textureImg = require("@/assets/mesh/minecraft.png")
-      const texture = new THREE.TextureLoader().load(textureImg)
+      const textureImg = require("@/assets/mesh/door/color.jpg")
+      const textureLoader = new THREE.TextureLoader()
+      const texture = textureLoader.load(textureImg)
+      const alphaTextureImg = require("@/assets/mesh/door/alpha.jpg")
+      const alphaTexture = textureLoader.load(alphaTextureImg)
       //   texture.minFilter = THREE.NearestFilter
       // 一张小纹理贴到一个大空间（例如16X16的纹理映射到32X32的像素空间），相当于纹理拉大
       //   参考：https://juejin.cn/post/7053621679762702343#comment
       texture.magFilter = THREE.NearestFilter
       const material = new THREE.MeshBasicMaterial({
         color: "#ffff00",
+        alphaMap: alphaTexture,
         map: texture,
+        transparent: true,
       })
       const cube = new THREE.Mesh(geometry, material)
       scene.add(cube)
