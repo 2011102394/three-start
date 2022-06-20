@@ -44,6 +44,9 @@
     <router-link to="/material/texture/root/mapFilter" class="router-item"
       >纹理采样方式</router-link
     >
+    <router-link to="/material/texture/root/alphaTexture" class="router-item"
+      >透明纹理</router-link
+    >
   </div>
 </template>
 
