@@ -41,6 +41,9 @@
     <router-link to="/material/texture/root/advance" class="router-item"
       >基础纹理属性</router-link
     >
+    <router-link to="/material/texture/root/mapFilter" class="router-item"
+      >纹理采样方式</router-link
+    >
   </div>
 </template>
 

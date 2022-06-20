@@ -141,6 +141,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "TextureAdvance" */ "@/views/material/texture/root/advance.vue"),
   },
+  {
+    path: "/material/texture/root/mapFilter",
+    name: "mapFilter",
+    component: () =>
+      import(/* webpackChunkName: "mapFilter" */ "@/views/material/texture/root/mapFilter.vue"),
+  },
 ]
 
 const router = new VueRouter({
