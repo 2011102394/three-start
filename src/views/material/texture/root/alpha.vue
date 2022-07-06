@@ -41,12 +41,20 @@ export default {
       texture.magFilter = THREE.NearestFilter
       const material = new THREE.MeshBasicMaterial({
         color: "#ffff00",
+        // 透明纹理
         alphaMap: alphaTexture,
         map: texture,
         transparent: true,
       })
       const cube = new THREE.Mesh(geometry, material)
       scene.add(cube)
+      // 添加平面
+      const plane = new THREE.Mesh(
+        new THREE.PlaneBufferGeometry(1,1),
+        material
+      )
+      plane.position.set(3,0,0)
+      scene.add(plane)
       const render = () => {
         renderer.render(scene, camera)
         raf = requestAnimationFrame(render)
