@@ -103,7 +103,9 @@ const routes = [
     path: "/fullScreen",
     name: "fullScreen",
     component: () =>
-      import(/* webpackChunkName: "fullScreen" */ "@/views/base/fullScreen/index.vue"),
+      import(
+        /* webpackChunkName: "fullScreen" */ "@/views/base/fullScreen/index.vue"
+      ),
   },
   {
     path: "/gui",
@@ -115,43 +117,65 @@ const routes = [
     path: "/geometry/bufferGeometry/line",
     name: "Line",
     component: () =>
-      import(/* webpackChunkName: "Line" */ "@/views/geometry/bufferGeometry/line.vue"),
+      import(
+        /* webpackChunkName: "Line" */ "@/views/geometry/bufferGeometry/line.vue"
+      ),
   },
   {
     path: "/geometry/bufferGeometry/cube",
     name: "Cube",
     component: () =>
-      import(/* webpackChunkName: "Cube" */ "@/views/geometry/bufferGeometry/cube.vue"),
+      import(
+        /* webpackChunkName: "Cube" */ "@/views/geometry/bufferGeometry/cube.vue"
+      ),
   },
   {
     path: "/geometry/bufferGeometry/triangle",
     name: "Triangle",
     component: () =>
-      import(/* webpackChunkName: "Triangle" */ "@/views/geometry/bufferGeometry/triangle.vue"),
+      import(
+        /* webpackChunkName: "Triangle" */ "@/views/geometry/bufferGeometry/triangle.vue"
+      ),
   },
   {
     path: "/material/texture/root/base",
     name: "TextureBase",
     component: () =>
-      import(/* webpackChunkName: "TextureBase" */ "@/views/material/texture/root/index.vue"),
+      import(
+        /* webpackChunkName: "TextureBase" */ "@/views/material/texture/root/index.vue"
+      ),
   },
   {
     path: "/material/texture/root/advance",
     name: "TextureAdvance",
     component: () =>
-      import(/* webpackChunkName: "TextureAdvance" */ "@/views/material/texture/root/advance.vue"),
+      import(
+        /* webpackChunkName: "TextureAdvance" */ "@/views/material/texture/root/advance.vue"
+      ),
   },
   {
     path: "/material/texture/root/mapFilter",
     name: "mapFilter",
     component: () =>
-      import(/* webpackChunkName: "mapFilter" */ "@/views/material/texture/root/mapFilter.vue"),
+      import(
+        /* webpackChunkName: "mapFilter" */ "@/views/material/texture/root/mapFilter.vue"
+      ),
   },
   {
     path: "/material/texture/root/alphaTexture",
     name: "alphaTexture",
     component: () =>
-      import(/* webpackChunkName: "alphaTexture" */ "@/views/material/texture/root/alpha.vue"),
+      import(
+        /* webpackChunkName: "alphaTexture" */ "@/views/material/texture/root/alpha.vue"
+      ),
+  },
+  {
+    path: "/material/texture/root/ambientOcclusion",
+    name: "aoMap",
+    component: () =>
+      import(
+        /* webpackChunkName:"aoMap" */ "@/views/material/texture/root/ambientOcclusion.vue"
+      ),
   },
 ]
 

@@ -47,6 +47,9 @@
     <router-link to="/material/texture/root/alphaTexture" class="router-item"
       >透明纹理</router-link
     >
+    <router-link to="/material/texture/root/ambientOcclusion" class="router-item"
+      >环境遮挡</router-link
+    >
   </div>
 </template>
 

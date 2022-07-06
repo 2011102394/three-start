@@ -1,61 +1,65 @@
 <!-- 
-    @description 透明纹理学习demo
+    @description 环境光遮挡
     @author zhangcj
-    @date 2022-06-20 14:33:43 
+    @date 2022-07-06 16:33:59 
  -->
 <template>
   <div class="three-container" ref="threeDOM"></div>
 </template>
 <script>
 import * as THREE from "three"
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js"
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 let raf
 export default {
   mounted() {
-    this.initThree()
+    this.init()
   },
   methods: {
-    initThree() {
-      const threeDOM = this.$refs.threeDOM
+    init() {
+      const threeDOM = this.$refs["threeDOM"]
       const width = threeDOM.clientWidth
       const height = threeDOM.clientHeight
       const renderer = new THREE.WebGLRenderer()
       renderer.setSize(width, height)
       threeDOM.appendChild(renderer.domElement)
       const scene = new THREE.Scene()
-      const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
+      const camera = new THREE.PerspectiveCamera(75, width / height, 1, 1000)
       camera.position.set(0, 0, 5)
       const controls = new OrbitControls(camera, renderer.domElement)
+      //   开启重力阻尼
       controls.enableDamping = true
       const axesHelper = new THREE.AxesHelper(5)
       scene.add(axesHelper)
+      // 创建物体
       const geometry = new THREE.BoxGeometry(1, 1, 1)
-      const textureImg = require("@/assets/mesh/door/color.jpg")
+      //  创建材质
       const textureLoader = new THREE.TextureLoader()
-      const texture = textureLoader.load(textureImg)
-      const alphaTextureImg = require("@/assets/mesh/door/alpha.jpg")
-      const alphaTexture = textureLoader.load(alphaTextureImg)
-      //   texture.minFilter = THREE.NearestFilter
-      // 一张小纹理贴到一个大空间（例如16X16的纹理映射到32X32的像素空间），相当于纹理拉大
-      //   参考：https://juejin.cn/post/7053621679762702343#comment
-      texture.magFilter = THREE.NearestFilter
+      const doorImg = require("@/assets/mesh/door/color.jpg")
+      const doorTexture = textureLoader.load(doorImg)
+      const alphaImg = require("@/assets/mesh/door/alpha.jpg")
+      const alphaTexture = textureLoader.load(alphaImg)
+      // 环境遮挡贴图
+      const ambientOcclusionImg = require("@/assets/mesh/door/ambientOcclusion.jpg")
+      const ambientOcclusionTexture = textureLoader.load(ambientOcclusionImg)
       const material = new THREE.MeshBasicMaterial({
         color: "#ffff00",
-        // 透明纹理
         alphaMap: alphaTexture,
-        map: texture,
+        map: doorTexture,
         transparent: true,
-        side:THREE.DoubleSide
+        aoMap: ambientOcclusionTexture,
+        side: THREE.DoubleSide,
       })
       const cube = new THREE.Mesh(geometry, material)
       scene.add(cube)
-      // 添加平面
-      const plane = new THREE.Mesh(
-        new THREE.PlaneBufferGeometry(1,1),
-        material
-      )
-      plane.position.set(3,0,0)
+      // 添加物体到场景中
+      //   再创建一个平面
+      const planeGeometry = new THREE.PlaneBufferGeometry(1, 1)
+      const plane = new THREE.Mesh(planeGeometry, material)
+      const uv = planeGeometry.getAttribute("uv")
+      planeGeometry.setAttribute("uv2", planeGeometry.getAttribute("uv"))
+      plane.position.set(3, 0, 0)
       scene.add(plane)
+
       const render = () => {
         renderer.render(scene, camera)
         raf = requestAnimationFrame(render)
@@ -63,15 +67,11 @@ export default {
       render()
     },
   },
-  beforeRouteLeave(to, from, next) {
-    cancelAnimationFrame(raf)
-    next()
-  },
 }
 </script>
 <style lang="scss" scoped>
 .three-container {
-  width: 100%;
   height: 100vh;
+  width: 100vw;
 }
 </style>
